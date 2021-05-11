@@ -7,7 +7,6 @@ const entriesSchema = mongoose.Schema({
     email: String,
     phone: String,
     company: String,
-    signature: String,
     date: Date
 })
 

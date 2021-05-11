@@ -7,11 +7,11 @@ const Helpers = require('../../utils/helpers')
 const { StatusCodes } = require('http-status-codes')
 
 router.route('/')
-    .post(checkLogin, (req, res) => {
+    .post((req, res) => {
         const errors = validationResult(req)
         if(!errors.isEmpty())
             res.json(Helpers.handleResponse(errors, StatusCodes.UNPROCESSABLE_ENTITY))
-        else logic.login(req.body.user).then(resp => {
+        else logic.login(req.body.username, req.body.password).then(resp => {
             if(resp.code === StatusCodes.OK)
                 req.session.user = req.body.user
             res.send(resp)

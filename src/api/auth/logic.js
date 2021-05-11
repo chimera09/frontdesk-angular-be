@@ -5,13 +5,13 @@ const Helpers = require('../../utils/helpers')
 const { StatusCodes } = require('http-status-codes')
 
 module.exports = {
-    login : async user => {
-        const userFound = await database.getByEmail(user.email)
+    login : async (username, password) => {
+        const userFound = await database.getByEmail(username)
         if(userFound === null){
             return Helpers.handleResponse(USER_NOT_FOUND, StatusCodes.FORBIDDEN)
         }
-        else if(bcrypt.compareSync(user.password, userFound.password)){
-            return Helpers.handleResponse(AUTH_SUCCESS, StatusCodes.OK)
+        else if(bcrypt.compareSync(password, userFound.password)){
+            return userFound
         }  
         else{
             return Helpers.handleResponse(INCORRECT_PASS, StatusCodes.FORBIDDEN)

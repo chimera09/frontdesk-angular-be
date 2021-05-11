@@ -5,9 +5,9 @@ module.exports = {
             USERS: 'users',
             ENTRIES: 'entries'
         },
-        URL: 'mongodb://frontdesk-db:27017/usersdb'
+        URL: 'mongodb://angfrontdesk-db:27017/usersdb'
     },
-    ORIGIN: 'http://localhost:3000',
+    ORIGIN: 'http://localhost:4200',
     SALT_ROUNDS: 10,
     MESSAGES: {
         USER_NOT_FOUND: "Utilizatorul nu a fost gasit",
