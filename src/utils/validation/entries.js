@@ -5,7 +5,6 @@ const checkEntries = [
     check('entry.email').isEmail(),
     check('entry.phone').isNumeric(),
     check('entry.company').isLength({ min : 1 }),
-    check('entry.signature').isLength({ min : 1 })
 ]
 module.exports = {
     checkEntries
