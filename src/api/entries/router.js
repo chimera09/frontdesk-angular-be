@@ -19,8 +19,7 @@ router.route('/')
     })
 
     .get((req, res) => {
-        logic.getAll().then(response => {
-            console.log("Backend response: ", response)
+        logic.getAll(req.query.from, req.query.limit).then(response => {
             res.json(response)
         }).catch(err => {
             res.send(err)
