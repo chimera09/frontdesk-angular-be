@@ -5,7 +5,7 @@ module.exports = {
             USERS: 'users',
             ENTRIES: 'entries'
         },
-        URL: 'mongodb://angfrontdesk-db:27017/usersdb'
+        URL: 'mongodb://frontdesk-db:27017/usersdb'
     },
     ORIGIN: 'http://localhost:4200',
     SALT_ROUNDS: 10,

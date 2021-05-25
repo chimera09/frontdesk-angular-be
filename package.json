@@ -15,6 +15,7 @@
     "express": "~4.16.1",
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
+    "generate-password": "^1.6.0",
     "http-errors": "^1.6.3",
     "http-status-codes": "^2.1.4",
     "jade": "~1.11.0",

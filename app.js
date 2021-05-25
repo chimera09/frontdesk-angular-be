@@ -9,6 +9,7 @@ const session = require('express-session');
 const CONSTANTS = require('./src/utils/constants')
 const connection = require('./src/database/connection')
 const cors = require('cors')
+const { authHandler } = require('./src/utils/middlewares')
 
 const usersRouter = require('./src/api/users/router')
 const authRouter = require('./src/api/auth/router')
@@ -36,17 +37,17 @@ connection().then( () => {
 
   app.use('/reset', resetRouter)
   app.use('/auth', authRouter)
-  app.use('/users', usersRouter)
+  app.use('/logout', (req, res) => {
+    req.session.destroy()
+    res.send("Logged out")
+  })
+  app.use(authHandler)
   app.use('/entries', entriesRouter)
+  app.use('/users', usersRouter)
 
 
   app.use('/isLogged', (req, res) => {
     res.send(req.session.user)
-  })
-
-  app.use('/logout', (req, res) => {
-    req.session.destroy()
-    res.send("Logged out")
   })
  
   app.use(function(req, res, next) {

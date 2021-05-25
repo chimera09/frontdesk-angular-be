@@ -12,13 +12,13 @@ router.route('/')
         if(!errors.isEmpty())
             res.json(Helpers.handleResponse(errors, StatusCodes.UNPROCESSABLE_ENTITY))
         else logic.login(req.body.username, req.body.password).then(resp => {
-            if(resp.code === StatusCodes.OK)
-                req.session.user = req.body.user
-            res.send(resp)
+            if(resp.token) {
+                req.session.user = req.body.username
+            }
+            res.json(resp)
         })
         .catch(err =>{
-            res.json(err)
-            res.status(404)
+            res.status(404).json(err)
         })
     })
 
