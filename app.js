@@ -41,7 +41,7 @@ connection().then( () => {
     req.session.destroy()
     res.send("Logged out")
   })
-  app.use(authHandler)
+  // app.use(authHandler)
   app.use('/entries', entriesRouter)
   app.use('/users', usersRouter)
 
