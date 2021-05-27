@@ -18,5 +18,6 @@ module.exports = {
         ACCESS: 200,
         FORBIDDEN : 403
     },
-    EXP_TIME: '1h'
+    EXP_TIME: '2h',
+    SECRET: 'secret'
 }

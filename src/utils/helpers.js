@@ -7,5 +7,11 @@ module.exports = {
     },
     hashPass: password => {
         return bcrypt.hashSync(password, SALT_ROUNDS)
-    }
+    },
+    simpleHtmlTemplating: (source, model) => {
+        Object.keys(model).forEach(key => {
+            source = source.replace(new RegExp(`{${key}}`, 'g'), model[key])
+        })
+        return source
+    },
 }

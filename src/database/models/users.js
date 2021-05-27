@@ -4,8 +4,14 @@ const CONSTANTS = require('../../utils/constants')
 const usersSchema = mongoose.Schema({
     name: String,
     surname: String,
-    email: String,
-    phone: String,
+    email: {
+        type: String,
+        unique: true
+    },
+    phone: {
+        type: String,
+        unique: true
+    },
     password: String,
     role: String,
 })

@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const logic = require('./logic')
+const wrap = require('express-async-wrap')
 const { validationResult } = require('express-validator')
+
 const { checkEntries } = require('../../utils/validation/entries')
 const Helpers = require('../../utils/helpers')
 const { StatusCodes } = require('http-status-codes')
@@ -32,7 +34,7 @@ router.route('/:ID')
             res.send(entry)
         })
     })
-    .put((req, res) =>{
+    .put(checkEntries, (req, res) =>{
         logic.update(req.params.ID, req.body).then(entry =>{
             res.send(entry)
          })

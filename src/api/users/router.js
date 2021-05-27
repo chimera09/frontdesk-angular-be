@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const logic = require('./logic')
+const wrap = require('express-async-wrap')
 const { validationResult } = require('express-validator')
+
 const { checkRegister } = require('../../utils/validation/users')
 const Helpers = require('../../utils/helpers')
 const { StatusCodes } = require('http-status-codes')
